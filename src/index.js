@@ -1,12 +1,12 @@
-const express = require('express')
-require('./db/mongoose')
-const User = require('./models/user')
-const Task = require('./models/task')
-const userRouter = require('./routers/user')
-const taskRouter = require('./routers/task')
-const app = express()
+const app = require('./app')
 const port = process.env.PORT
-const multer = require('multer')
+
+
+app.listen(port, () => {
+    console.log('Server is up on port ' + port)
+})
+
+
 // app.use( (req,res,next) => {
 //     if (req.method === 'GET') {
 //         res.send('GET requests are disabled')
@@ -14,17 +14,6 @@ const multer = require('multer')
 //         next()
 //     }
 // })
-
-
-
-app.use(express.json())
-app.use(userRouter)
-app.use(taskRouter)
-
-
-app.listen(port, () => {
-    console.log('Server is up on port ' + port)
-})
 
 // const jwt = require('jsonwebtoken')
 
